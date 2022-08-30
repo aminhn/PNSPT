@@ -1,0 +1,62 @@
+PNSPT Version 1.0 - Provider Network Selection and Patient Targeting Problem in Health Insurance Markets
+
+Copyright (C) 2022 Amin Hosseininasab
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied 
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+DESCRIPTION
+    Algorithms in this folder generate a tailored dataset for the PNSPT problem.
+    This folder contains three subfolders: algorithms, annotated data, and generated instances
+    The algorithms subfolder contains all algorithms and raw data used to generate an instance for the PNSPT problem.
+    The annotated data subfolder contains all input data used in the dataset generation algorithm, along with explanations in each file.
+    The generated instances subfolder contains already generated instances for the PNSPT problem that are used in the below reference.
+    	
+REFERENCE
+    Please cite the below paper when using MSAMDD. Technical and algorithm specifics may also be found in this paper.
+    Hosseininasab, A., van Hoeve, W.J. and Tayur, S., 2022. 
+    Provider Network Selection and Patient Targeting Problem in Health Insurance Markets.
+
+CONTACT
+    a.hosseininasab@ufl.edu
+
+INSTALLATION
+    Designed for Linux systems. Installation from Makefile. Simply use make. Output is "mkd" executable.
+
+DOWNLOAD
+    PNSPT can be downloaded from https://github.com/aminhn/PNSPT
+
+COMMAND LINE USAGE
+    Example: ./mkd -npat 300000 -ver 1
+
+COMMAND LINE COMMANDS
+	
+	-npat		Metropolitan patient population
+	-ver		Dataset version used as seed to generate random values. If not provided, uses random seed.
+	
+	Remaining commands are used to generate varying data environments used in above reference.
+
+	-c_ann		Coefficient multiplied by provider annual fixed cost. Default value = 1.
+	-c_neg 		Coefficient multiplied by provider negotiation coefficient. Default value = 1. 
+	-c_sneg 	Coefficient multiplied by provider out-of-network coefficient. Default value = 1.
+	-c_cst 		Coefficient multiplied by patient service costs. Default value = 1.
+	-c_pop 		Coefficient multiplied by patient population in each metropolitan zip code. Default value = 1. 
+	-c_age 		Coefficient used to change patient age distribution. Default value = 1. A value above 1 generates a younger population.
+	-c_tob 		Coefficient used to change patient tobacco use distribution. Default value = 1. A value above 1 generates less tobacco users. 
+	-c_beta_qual 	Coefficient used to change patient preference for provider quality. Default value = 1. A value above 1 also reduces the preference of patients for other influencial factors in patient choice of providers.
+	-c_beta_wait 	Coefficient used to change patient preference for provider wait time. Default value = 1. A value above 1 also reduces the preference of patients for other influencial factors in patient choice of providers.
+	-c_beta_dist	Coefficient used to change patient preference for distance to provider. Default value = 1. A value above 1 also reduces the preference of patients for other influencial factors in patient choice of providers.
+	-c_beta_pln	Coefficient used to change patient preference for health insurance plan. Default value = 1. A value above 1 increases sensitivity to premium and reduces sensitivity to network breadth.
+	-c_eps		Coefficient multiplied by epsilon_0. Default value = 1.
+	-s_ann		This enforces that all providers of the same type must charge the same annual fixed cost.
+	-s_cost		This enforces that all providers must charge the same service cost for the same healthcare service. Also results in the same annual fixed cost for each provider type.
+
+
+INPUT FILE 
+    Input files are contained in the ./algorithms/data/ subfolder. Input files use the same data given in the ./annotated data subfolder, but are without explanation and tailored to the dataset generation algorithm required format.
+
+OUTPUT FILE
+    Produces output files in ./algorithms/instances/ subfolder. The output files are tailored to be used as input of the optimization algorithm.
+
+

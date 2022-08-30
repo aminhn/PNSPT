@@ -1,0 +1,46 @@
+PNSPT Version 1.0 - Provider Network Selection and Patient Targeting Problem in Health Insurance Markets
+
+Copyright (C) 2022 Amin Hosseininasab
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied 
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+DESCRIPTION
+    Algorithms in this folder generate an optimal PNSPT solution.
+    	
+REFERENCE
+    Please cite the below paper when using MSAMDD. Technical and algorithm specifics may also be found in this paper.
+    Hosseininasab, A., van Hoeve, W.J. and Tayur, S., 2022. 
+    Provider Network Selection and Patient Targeting Problem in Health Insurance Markets.
+
+CONTACT
+    a.hosseininasab@ufl.edu
+
+INSTALLATION
+    Designed for Linux systems. Installation from Makefile. Simply use make. Output is "prvnet" executable.
+
+EXTERNAL SOFTWARE REQUIREMENTS FOR INSTALLATION
+    MSAMDD requires the installation of IBM ILOG CPLEX Optimization Studio to solve its mathematical programming models. 
+    CPLEX may be downloaded from https://www.ibm.com/products/ilog-cplex-optimization-studio
+    CPLEX should be installed in the opt/ibm/ILOG directory at the root folder of the Linux system. 
+    MSAMDD automatically detects and uses the latest version at this directory. In case CPLEX is installed in a different directory, 
+    the user must change the default directory in the Makefile at line 5.
+
+DOWNLOAD
+    PNSPT can be downloaded from https://github.com/aminhn/PNSPT
+
+COMMAND LINE USAGE
+    Example: ./prvnet -inst ../data/generated_instances/I200000_ver1
+
+COMMAND LINE COMMANDS
+	
+	-inst		Path to PNSPT data instance
+	
+
+INPUT FILE 
+    Input files must be in the required format as created by the dataset generation algorithm. Examples are provided in ./data/generated_instances subfolder.
+
+OUTPUT FILE
+    Produces output files in ./results/ subfolder.
+
